@@ -1,0 +1,11 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}-------------------------------------------------------------------------
+${licensePrefix}${name}.java
+${licensePrefix}Descripcion: 
+${licensePrefix}Estructuras de Datos en Java  ---  Yimmy Quispe Yujra, Santa Cruz - ${date?date?string("yyyy")}
+${licensePrefix}-------------------------------------------------------------------------
+<#if licenseLast??>
+${licenseLast}
+</#if>

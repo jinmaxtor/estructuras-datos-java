@@ -1,33 +1,42 @@
 /*
  * -------------------------------------------------------------------------
- * ArrayBolsa.java
+ * ArrayBolsaDinamica.java
  * Descripcion: 
  * Estructuras de Datos en Java  ---  Yimmy Quispe Yujra, Santa Cruz - 2019
  * -------------------------------------------------------------------------
  */
 package estructuras.bolsas;
 
+import java.util.Arrays;
+
 /**
- * Una clase de bolsas que almacenan los elementos en un arreglo de tamaño fijo.
+ * Una clase de bolsas que almacenan los elementos en un arreglo de tamaño
+ * variable.
  *
  * @author Yimmy Quispe Yujra
  * @param <T> es el la Clase del tipo de elemento de la bolsa.
  */
-public class ArrayBolsa<T> implements Bolsa<T> {
+public class ArrayBolsaDinamica<T> implements Bolsa<T> {
 
-    private final T[] bolsa;
-    private static final int CAPACIDAD_INICIAL = 25;
+    private T[] bolsa;
     private int numeroDeElementos;
-    
-    public ArrayBolsa() {
+    private static final int CAPACIDAD_INICIAL = 25;
+
+    public ArrayBolsaDinamica() {
         this(CAPACIDAD_INICIAL);
     }
 
-    public ArrayBolsa(int capacidad) {
+    public ArrayBolsaDinamica(int capacidad) {
         numeroDeElementos = 0;
         bolsa = (T[]) new Object[capacidad];
     }
-    
+
+    private void asegurarCapacidad() {
+        if (estaLlena()) {
+            bolsa = Arrays.copyOf(bolsa, 2 * numeroDeElementos);
+        }
+    }
+
     private T eliminarElemento(int indiceElemento) {
         T resultado = null;
         if (!estaVacia() && indiceElemento > 0) {
@@ -36,17 +45,17 @@ public class ArrayBolsa<T> implements Bolsa<T> {
             bolsa[indiceElemento] = bolsa[numeroDeElementos];
             bolsa[numeroDeElementos] = null;
         }
-        
+
         return resultado;
     }
-    
+
     private int getIndiceDe(T elemento) {
         for (int i = 0; i < numeroDeElementos; i++) {
             if (elemento.equals(bolsa[i])) {
                 return i;
             }
         }
-        
+
         return -1;
     }
 
@@ -67,10 +76,7 @@ public class ArrayBolsa<T> implements Bolsa<T> {
 
     @Override
     public boolean adicionar(T elemento) {
-        if (estaLlena()) {
-            return false;
-        }
-        
+        asegurarCapacidad();
         bolsa[numeroDeElementos] = elemento;
         numeroDeElementos++;
         return true;
@@ -84,7 +90,6 @@ public class ArrayBolsa<T> implements Bolsa<T> {
 
     @Override
     public boolean eliminar(T elemento) {
-        
         int indice = getIndiceDe(elemento);
         T eliminado = eliminarElemento(indice);
         return elemento.equals(eliminado);
@@ -92,44 +97,33 @@ public class ArrayBolsa<T> implements Bolsa<T> {
 
     @Override
     public void vaciar() {
-        
-        // numeroDeElementos = 0;
-        
-        while (!estaVacia()) {            
-            eliminar();
-        }
+        numeroDeElementos = 0;
     }
 
     @Override
     public int getFrecuenciaDe(T elemento) {
         int frecuencia = 0;
-        
+
         for (int i = 0; i < numeroDeElementos; i++) {
             if (elemento.equals(bolsa[i])) {
                 frecuencia++;
             }
         }
-        
+
         return frecuencia;
     }
 
     @Override
     public boolean contiene(T elemento) {
-        
         return getIndiceDe(elemento) > -1;
     }
 
     @Override
     public T[] toArray() {
         T[] resultado = (T[]) new Object[numeroDeElementos];
-        
-        // System.arraycopy(bolsa, 0, resultado, 0, numeroDeElementos);
-        // resultado = Arrays.copyOf(bolsa, numeroDeElementos);
-        
-        for (int i = 0; i < numeroDeElementos; i++) {
-            resultado[i] = bolsa[i];
-        }
-        
+
+        System.arraycopy(bolsa, 0, resultado, 0, numeroDeElementos);
+
         return resultado;
     }
 

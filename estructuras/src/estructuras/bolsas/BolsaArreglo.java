@@ -1,6 +1,6 @@
 /*
  * -------------------------------------------------------------------------
- * ArrayBolsa.java
+ * BolsaArreglo.java
  * Descripcion: 
  * Estructuras de Datos en Java  ---  Yimmy Quispe Yujra, Santa Cruz - 2019
  * -------------------------------------------------------------------------
@@ -13,17 +13,17 @@ package estructuras.bolsas;
  * @author Yimmy Quispe Yujra
  * @param <T> es el la Clase del tipo de elemento de la bolsa.
  */
-public class ArrayBolsa<T> implements Bolsa<T> {
+public class BolsaArreglo<T> implements Bolsa<T> {
 
     private final T[] bolsa;
     private static final int CAPACIDAD_INICIAL = 25;
     private int numeroDeElementos;
     
-    public ArrayBolsa() {
+    public BolsaArreglo() {
         this(CAPACIDAD_INICIAL);
     }
 
-    public ArrayBolsa(int capacidad) {
+    public BolsaArreglo(int capacidad) {
         numeroDeElementos = 0;
         bolsa = (T[]) new Object[capacidad];
     }

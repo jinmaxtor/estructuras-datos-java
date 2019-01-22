@@ -1,6 +1,6 @@
 /*
  * -------------------------------------------------------------------------
- * ArrayBolsaDinamica.java
+ * BolsaArregloDinamica.java
  * Descripcion: 
  * Estructuras de Datos en Java  ---  Yimmy Quispe Yujra, Santa Cruz - 2019
  * -------------------------------------------------------------------------
@@ -16,17 +16,17 @@ import java.util.Arrays;
  * @author Yimmy Quispe Yujra
  * @param <T> es el la Clase del tipo de elemento de la bolsa.
  */
-public class ArrayBolsaDinamica<T> implements Bolsa<T> {
+public class BolsaArregloDinamica<T> implements Bolsa<T> {
 
     private T[] bolsa;
     private int numeroDeElementos;
     private static final int CAPACIDAD_INICIAL = 25;
 
-    public ArrayBolsaDinamica() {
+    public BolsaArregloDinamica() {
         this(CAPACIDAD_INICIAL);
     }
 
-    public ArrayBolsaDinamica(int capacidad) {
+    public BolsaArregloDinamica(int capacidad) {
         numeroDeElementos = 0;
         bolsa = (T[]) new Object[capacidad];
     }

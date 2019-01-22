@@ -13,5 +13,30 @@ package estructuras.nodos;
  */
 public class Nodo<T> {
     private T dato;
-    private Nodo siguiente;
+    private Nodo<T> siguienteNodo;
+
+    public Nodo(T dato) {
+        this(dato, null);
+    }
+
+    public Nodo(T dato, Nodo<T> siguienteNodo) {
+        this.dato = dato;
+        this.siguienteNodo = siguienteNodo;
+    }
+
+    public T getDato() {
+        return dato;
+    }
+
+    public void setDato(T dato) {
+        this.dato = dato;
+    }
+
+    public Nodo<T> getSiguienteNodo() {
+        return siguienteNodo;
+    }
+
+    public void setSiguienteNodo(Nodo<T> siguienteNodo) {
+        this.siguienteNodo = siguienteNodo;
+    }
 }

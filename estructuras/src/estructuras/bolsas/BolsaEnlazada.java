@@ -10,9 +10,12 @@ package estructuras.bolsas;
 import estructuras.nodos.Nodo;
 
 /**
- *
- * @author Yimmy
- * @param <T>
+ * Una clase de bolsas donde los elementos son almacenados en una cadena de
+ * nodos enlazados. La bolsa no nunca se llena.
+ * 
+ * @author Yimmy Quispe Yujra
+ * @version 1.0
+ * @param <T> es la Clase del tipo de elmentos que hay en la bolsa.
  */
 public class BolsaEnlazada<T> implements Bolsa<T> {
 
@@ -54,7 +57,7 @@ public class BolsaEnlazada<T> implements Bolsa<T> {
 
     @Override
     public boolean adicionar(T elemento) {
-        Nodo nuevoNodo = new Nodo(elemento);
+        Nodo<T> nuevoNodo = new Nodo<T>(elemento);
         nuevoNodo.setSiguienteNodo(primerNodo);
 
         primerNodo = nuevoNodo;
@@ -77,7 +80,7 @@ public class BolsaEnlazada<T> implements Bolsa<T> {
 
     @Override
     public boolean eliminar(T elemento) {
-        Nodo nodoElemento = getNodo(elemento);
+        Nodo<T> nodoElemento = getNodo(elemento);
         if (nodoElemento != null) {
             nodoElemento.setDato(primerNodo.getDato());
             eliminar();
@@ -96,7 +99,7 @@ public class BolsaEnlazada<T> implements Bolsa<T> {
     @Override
     public int getFrecuenciaDe(T elemento) {
         int frecuencia = 0;
-        Nodo nodoActual = primerNodo;
+        Nodo<T> nodoActual = primerNodo;
         while (nodoActual != null) {
             if (nodoActual.getDato().equals(elemento)) {
                 frecuencia++;
@@ -109,7 +112,7 @@ public class BolsaEnlazada<T> implements Bolsa<T> {
 
     @Override
     public boolean contiene(T elemento) {
-        Nodo nodoActual = primerNodo;
+        Nodo<T> nodoActual = primerNodo;
         while (nodoActual != null) {
             if (nodoActual.getDato().equals(elemento)) {
                 return true;

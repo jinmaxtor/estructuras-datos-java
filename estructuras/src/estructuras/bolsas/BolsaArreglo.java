@@ -11,7 +11,8 @@ package estructuras.bolsas;
  * Una clase de bolsas que almacenan los elementos en un arreglo de tamaño fijo.
  *
  * @author Yimmy Quispe Yujra
- * @param <T> es el la Clase del tipo de elemento de la bolsa.
+ * @version 1.0
+ * @param <T> es la Clase del tipo de elemento de la bolsa.
  */
 public class BolsaArreglo<T> implements Bolsa<T> {
 

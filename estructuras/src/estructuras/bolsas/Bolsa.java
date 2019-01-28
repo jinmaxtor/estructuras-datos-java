@@ -15,7 +15,7 @@ package estructuras.bolsas;
  *
  * @author Yimmy Quispe Yujra
  * @version 1.0
- * @param <T> 
+ * @param <T> es la Clase de elmentos que hay en la bolsa.
  */
 public interface Bolsa<T> {
 

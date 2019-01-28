@@ -14,6 +14,7 @@ import java.util.Arrays;
  * variable.
  *
  * @author Yimmy Quispe Yujra
+ * @version 1.0
  * @param <T> es el la Clase del tipo de elemento de la bolsa.
  */
 public class BolsaArregloDinamica<T> implements Bolsa<T> {

@@ -7,6 +7,9 @@
  */
 package estructuras;
 
+import estructuras.bolsas.*;
+import estructuras.nodos.*;
+
 /**
  *
  * @author Yimmy Quispe Yujra
@@ -19,5 +22,17 @@ public class Estructuras {
      */
     public static void main(String[] args) {
         System.out.println("Holas de mar compas, digo mundo v: !!!");
+	
+		Bolsa numeros = new BolsaEnlazada();
+		
+		numeros.adicionar(7);
+		numeros.adicionar("r");
+		numeros.adicionar(new Nodo("y"));
+		
+		Object[] l = numeros.toArray();
+		
+		for (int i = 0; i < l.length; i++) {
+			System.out.println(l[i]);
+		}
     }
 }

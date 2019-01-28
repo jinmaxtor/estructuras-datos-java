@@ -8,8 +8,10 @@
 package estructuras.nodos;
 
 /**
- *
- * @author Yimmy
+ * 
+ * @author Yimmy Quispe Yujra
+ * @version 1.0
+ * @param <T> es la Clase de elmento que hay en el nodo.
  */
 public class Nodo<T> {
     private T dato;
